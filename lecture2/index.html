@@ -36,6 +36,38 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+
+        /* FORM CSS */
+        .title,
+        .subtitle {
+            text-align: center;
+        }
+
+        #input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-right: 9em;
+        }
+
+        .input {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #button-container {
+            text-align: center;
+        }
+
+        label {
+            margin-right: 0.4em;
+        }
     </style>
 </head>
 
@@ -48,8 +80,56 @@
         
         <div id="form-container">
             <form action="" id="user-form">
+                <h2 class="subtitle">Add Coins</h2>
+                
+                <div id="input-container">
+                    <div class="input">
+                        <label for="coin1">Coin Name : </label>
+                        <input type="text" id="coin1" required="" placeholder="Enter Coin"> <br><br>
+                    </div>
+
+                    <div class="input">
+                        <label for="ticker1">Ticker : </label>
+                        <input type="text" id="ticker1" required="" placeholder="Valid Ticker"> <br><br>
+                    </div>
+
+                    <div class="input">
+                        <label for="buy1">Buy Price : </label>
+                        <input type="number" id="buy1" required="" placeholder="Buy Price"> <br><br>
+                    </div>
+
+                    <div class="input">
+                        <label for="quant1">Buy Quantity : </label>
+                        <input type="number" id="quant1" required="" placeholder="Quantity"> <br><br>
+                    </div>
+
+                </div>
+
+                <div id="button-container">
+                    <button id="savebutton" type="button">Save</button>
+                </div>
 
             </form>
+        </div>
+
+        <div id="table-container">
+            <h2 class="subtitle">Current Portfolio</h2>
+            <table id="table">
+                <tr>
+                    <th>S.No</th>
+                    <th>Coin</th>
+                    <th>Ticker</th>
+                    <th>Buy_Price</th>
+                    <th>Buy_Quantity</th>
+                    <th>Current Price</th>
+                    <th>Profit</th>
+                    <th>Options</th>
+                </tr>
+            </table>
+        </div>
+
+        <div id="total-profit">
+            <h2 class="subtitle">Your Total Profit is : XX$</h2>
         </div>
     </div>
 </body>
