@@ -11,7 +11,13 @@
 
         /* ======== BASE ======== */
         :root {
-            --light-background: rgb(255, 255, 255);
+            --light-background: rgb(215, 214, 215);
+            --light-main-background: rgb(240, 240, 242);
+            --light-card-background: rgb(255, 255, 255);
+            --light-input-background: rgb(226, 224, 224);
+            --light-button-background: rgb(228, 228, 228);
+            --box-shadow-card:rgba(0, 0, 0, 0.15) 2.5px 2.5px 5px;
+            --total-profit-background: rgb(35, 34, 34);
         }
 
         * {
@@ -27,60 +33,136 @@
             align-items: center;
             min-height: 100vh;
             background-color: var(--light-background);
-            overflow: hidden;
         }
 
-        .center {
+        /* .center {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+        } */
+
+        /* CSS */
+        #main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            row-gap: 2em;
+            background: var(--light-main-background);
+            box-shadow: var(--box-shadow-card);
+            border-radius: 2.5em;
+            width: 60em;
+            height: 75vh;
+            padding-bottom: 1.5em;
         }
 
-        /* FORM CSS */
-        .title,
-        .subtitle {
+        .title {
+            /* position: relative;
+            right: 19.5em; */
+            margin-top: 2em;
+        }
+
+        #form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--light-card-background);
+            width: 80%;
+            height: 55%;
+            border-radius: 1.5em;
+            box-shadow: var(--box-shadow-card);
+            padding-bottom: 1.5em;
+        }
+
+        .subtitle.addcoins,
+        .subtitle.currentportfolio {
+            /* position: relative; */
+            margin-top: 0.5em;
+            /* right: 8.5em */
             text-align: center;
+            margin-bottom: 0.3em;
         }
 
         #input-container {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            margin-right: 9em;
-        }
-
-        .input {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        #button-container {
-            text-align: center;
         }
 
         label {
-            margin-right: 0.4em;
+            font-weight: 600;
+            margin-right: 0.5em;
         }
+
+        .input input {
+            border: none;
+            outline: none;
+            background-color: var(--light-input-background);
+            padding: 0.5em 2em 0.5em 0.5em;
+            border-radius: 0.8em;
+        }
+
+        #button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #savebutton {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 0.7em 3em;
+            border-radius: 0.7em;
+            background: var(--light-button-background);
+            box-shadow: rgba(0, 0, 0, 0.3) 1.95px 1.95px 2.6px;
+        }
+
+        #savebutton:hover {
+            opacity: 0.85;
+        }
+
+        #table-container {
+            background: var(--light-card-background);
+            width: 80%;
+            height: 20%;
+            border-radius: 1.5em;
+            box-shadow: var(--box-shadow-card);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #totalprofit-container {
+            background: var(--total-profit-background);
+            width: 80%;
+            height: 7%;
+            border-radius: 0.8em;
+            margin-bottom: 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 0.2em;
+            box-shadow: var(--box-shadow-card);
+            color: var(--light-card-background);
+        }
+
     </style>
 </head>
 
 <!-- ======== HTML ========= -->
 <body>
-    <div class="main center">
+    <div class="center" id="main-container">
         <div class="title">
             <h1>Welcome to CPP</h1>
         </div>
         
         <div id="form-container">
             <form action="" id="user-form">
-                <h2 class="subtitle">Add Coins</h2>
+                <h2 class="subtitle addcoins">Add Coins</h2>
                 
                 <div id="input-container">
                     <div class="input">
@@ -113,7 +195,7 @@
         </div>
 
         <div id="table-container">
-            <h2 class="subtitle">Current Portfolio</h2>
+            <h2 class="subtitle currentportfolio">Current Portfolio</h2>
             <table id="table">
                 <tr>
                     <th>S.No</th>
@@ -121,15 +203,15 @@
                     <th>Ticker</th>
                     <th>Buy_Price</th>
                     <th>Buy_Quantity</th>
-                    <th>Current Price</th>
+                    <th>Current_Price</th>
                     <th>Profit</th>
                     <th>Options</th>
                 </tr>
             </table>
         </div>
 
-        <div id="total-profit">
-            <h2 class="subtitle">Your Total Profit is : XX$</h2>
+        <div id="totalprofit-container">
+            <h2 class="subtitle totalprofit">Your Total Profit is : XX$</h2>
         </div>
     </div>
 </body>
