@@ -8,13 +8,14 @@
 </head>
 <body>
     <!-- HTML CODE -->
-    <button onclick="alertHello()">Click Me</button>  
+    <button onclick=alertHello()>Click Me</button>  
     <button id="click-btn">Click Me Again</button>
+    <button onclick=calculate()>Calculate</button>
     <button id="show-btn">Show content</button>  
     <div class="content"></div>
 
     <script>
-        // Debug - Slide 
+        // CONSOLE MESSAGES 
         console.log('Hello World, I am Li Hui');
         console.error("This is an error message logged on console.");
         console.warn("This is a warning message logged on console.");
@@ -22,7 +23,54 @@
         console.assert(2 === 3);
         document.write("I am a text written from console")
         // Uncomment the line below to clear the console
-        //console.clear()  
+        console.clear()  
+
+        // VARIABLES 
+        function calculate() {
+            if (true) {
+                var a = 5; // global scope
+                var b = 6; // global scope
+                let c = 8  // local scop
+                const d = 9
+            }
+            console.log(a + b);  // 11 logged on console
+            console.log(a + c);  // Uncaught ReferenceError : c is not defined 
+            console.log(b, d)  // Uncaught ReferenceError : d is not defined 
+        }
+
+        // ARRAYS 
+        myArr = ['This', 'Is', 'BT3103'];
+        console.log("Array Length is : " + myArr.length)
+        console.log("Element at index 0 is : " + myArr[0])
+        console.log("Element at index 3 is : " + myArr[3])
+        myArr[3] = "Class"
+        console.log("After adding, element at index 3 is : " + myArr[3])
+
+        myArr.push('Yay')  // .push(ele) -> append to the end of array 
+        console.log(myArr)
+        myArr.shift()  // .shift() -> remove the first element in array 
+        console.log(myArr) 
+        myArr.pop() //.pop() -> remove the last element in array
+        console.log(myArr)   
+        console.log("After one push, one shift and one pop, array length is : " + myArr.length)
+
+        console.log(myArr.slice(1))  // .slice(index)
+        console.log(myArr.slice(-1))
+        console.log(myArr.slice(-2))
+        console.log(myArr)  // Array remains unchanged after slicing  
+
+        // FUNCTIONS 
+        // Invoke Functions 
+        function display(a, b) {
+            console.log(a + " --> " + b);
+        }
+        display("hi", "bye");
+
+        // Return from Functions 
+        function addition(a, b) {
+            return a + b; 
+        }
+        console.log(addition(7, 8));
 
         // Event Handler 
         function alertHello() {
