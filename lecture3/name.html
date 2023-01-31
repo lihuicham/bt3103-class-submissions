@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Practice</title>
+</head>
+<body>
+    <!-- HTML CODE -->
+    <button onclick="alertHello()">Click Me</button>  
+    <button id="click-btn">Click Me Again</button>
+    <button id="show-btn">Show content</button>  
+    <div class="content"></div>
+
+    <script>
+        // Debug - Slide 
+        console.log('Hello World, I am Li Hui');
+        console.error("This is an error message logged on console.");
+        console.warn("This is a warning message logged on console.");
+        console.assert(3 === 3);
+        console.assert(2 === 3);
+        document.write("I am a text written from console")
+        // Uncomment the line below to clear the console
+        //console.clear()  
+
+        // Event Handler 
+        function alertHello() {
+            // Debug - alert
+            alert('I am an alert called by clicking on a button')
+        }
+
+        function alertShow() {
+            const content = document.querySelector('.content');
+            content.innerHTML = 'Have a nice day !'
+        }
+
+        // getElementbyID 
+        document.getElementById('click-btn').addEventListener('click', alertHello);
+
+        //getElementbyClassName
+        document.getElementById('show-btn').addEventListener('click', alertShow)
+    </script>
+</body>
+</html>
