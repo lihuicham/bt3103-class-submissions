@@ -13,6 +13,13 @@
     <button onclick=calculate()>Calculate</button>
     <button id="show-btn">Show content</button>  
     <div class="content"></div>
+    <br>
+    <div class="example" onmouseenter=mouseOn() onmouseout=mouseOut()>Hover across me to change ! </div>
+    <div class="example">I don't change</div>
+    <br>
+    <input placeholder="Click here, then press down a key." size="40" />
+    <p id="log"></p>
+
 
     <script>
         // CONSOLE MESSAGES 
@@ -72,22 +79,51 @@
         }
         console.log(addition(7, 8));
 
-        // Event Handler 
+        // Use in Websites - Interactive 
+        // getElementbyId
+        document.getElementById('click-btn').addEventListener('click', alertHello);
+        document.getElementById('show-btn').addEventListener('click', show)
         function alertHello() {
-            // Debug - alert
             alert('I am an alert called by clicking on a button')
         }
 
-        function alertShow() {
+        function show() {
             const content = document.querySelector('.content');
-            content.innerHTML = 'Have a nice day !'
+            content.innerHTML = 'Have a nice day !'  // DYNAMIC HTML
         }
 
-        // getElementbyID 
-        document.getElementById('click-btn').addEventListener('click', alertHello);
+        //getElementsbyClassName returns a collection
+        const collection = document.getElementsByClassName("example");
+        function mouseOn() {
+            collection[0].innerHTML = "I changed !!!"
+        }
 
-        //getElementbyClassName
-        document.getElementById('show-btn').addEventListener('click', alertShow)
+        function mouseOut() {
+            collection[0].innerHTML = "Hover across me to change ! "
+        }
+
+        // onkeydown 
+        const input = document.querySelector('input');
+        const log = document.getElementById('log');
+
+        input.addEventListener('keydown', logKey);
+
+        function logKey(e) {
+            log.textContent += ` ${e.code}`;
+        }
+
+        // CONDITIONAL STATEMENT 
+        var a = 10;   // change a = -10, a = 0 to test code 
+        if (a > 0) {
+            console.log("Positive number : " + a);
+        } else if (a < 0){
+            console.log("Negative number : " + a);
+        } else {
+            // a == 0 
+            console.log("a is 0")
+        }
+        
+
     </script>
 </body>
 </html>
