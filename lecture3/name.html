@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Practice</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ccxt@1.42.6/dist/ccxt.browser.js"></script>
 </head>
 <body>
     <!-- HTML CODE -->
+    
     <button onclick=alertHello()>Click Me</button>  
     <button id="click-btn">Click Me Again</button>
     <button onclick=calculate()>Calculate</button>
@@ -123,7 +125,40 @@
             console.log("a is 0")
         }
         
+        //PROMISES 
+        //.then() to resolve promise 
+
+        function getData() {
+            let binance = new ccxt.binance
+            let z = binance.fetch_ohlcv("BTC/USDT", "5m")
+            z.then(() => {
+                console.log("Fetched the Bitcoin price", z)
+            })
+        }
+        getData()
+
+        function getLatestValue() {
+            let binance = new ccxt.binance
+            let z = binance.fetch_ohlcv("BTC/USDT", "5m")
+            z.then((response) => {
+                let y = response[499][4]
+                console.log("Fetched the Bitcoin price", y)
+            })
+        }
+        getLatestValue()
+
+        // ASYNC & AWAIT 
+        async function getDataAsync() { 
+            let binance = new ccxt.binance
+            let x = await binance.fetch_ohlcv("BTC/USDT", "5m")
+            console.log("Fetched the Bitcoin price with async", x[499][4])
+            console.log("The promise resolved", x)
+            return x;
+        }
+        getDataAsync();
 
     </script>
+    
+
 </body>
 </html>
