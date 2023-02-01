@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Practice</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ccxt@1.42.6/dist/ccxt.browser.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ccxt@1.42.6/dist/ccxt.browser.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 </head>
 <body>
     <!-- HTML CODE -->
@@ -24,6 +25,7 @@
 
 
     <script>
+        
         // CONSOLE MESSAGES 
         console.log('Hello World, I am Li Hui');
         console.error("This is an error message logged on console.");
@@ -156,6 +158,13 @@
             return x;
         }
         getDataAsync();
+
+        // Lodash library 
+        var array = [1];
+        var other = _.concat(array, 2, [3], [[4]]);
+ 
+        console.log(other);  // => [1, 2, 3, [4]]
+        console.log(array);  // => [1]
 
     </script>
     
