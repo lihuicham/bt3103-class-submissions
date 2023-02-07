@@ -4,167 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Paper Portfolio</title>
-    <!-- ======== CSS ======== -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    <title>CPP V-1.0</title>
+    <!-- EXTERNAL CSS STYLESHEET -->
+    <link rel="stylesheet" href="./style.css">
 
-        /* ======== BASE ======== */
-        :root {
-            --light-background: rgb(215, 214, 215);
-            --light-main-background: rgb(240, 240, 242);
-            --light-card-background: rgb(255, 255, 255);
-            --light-input-background: rgb(226, 224, 224);
-            --light-button-background: rgb(228, 228, 228);
-            --box-shadow-card:rgba(0, 0, 0, 0.15) 2.5px 2.5px 5px;
-            --total-profit-background: rgb(35, 34, 34);
-        }
+    <!-- CCXT -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ccxt@1.42.6/dist/ccxt.browser.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 
-        * {
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: var(--light-background);
-        }
-
-        /* .center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        } */
-
-        /* CSS */
-        #main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            row-gap: 2em;
-            background: var(--light-main-background);
-            box-shadow: var(--box-shadow-card);
-            border-radius: 2.5em;
-            width: 60em;
-            height: 90vh;
-            padding-bottom: 3em;
-        }
-
-        .title {
-            /* position: relative;
-            right: 19.5em; */
-            margin-top: 2em;
-        }
-
-        #form-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--light-card-background);
-            width: 80%;
-            height: 55%;
-            border-radius: 1.5em;
-            box-shadow: var(--box-shadow-card);
-            padding-bottom: 1.5em;
-        }
-
-        .subtitle.addcoins,
-        .subtitle.currentportfolio {
-            /* position: relative; */
-            margin-top: 0.5em;
-            /* right: 8.5em */
-            text-align: center;
-            margin-bottom: 0.3em;
-        }
-
-        #input-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-
-        label {
-            font-weight: 600;
-            margin-right: 0.5em;
-        }
-
-        .input input {
-            border: none;
-            outline: none;
-            background-color: var(--light-input-background);
-            padding: 0.5em 2em 0.5em 0.5em;
-            border-radius: 0.8em;
-        }
-
-        #button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #savebutton {
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 0.7em 3em;
-            border-radius: 0.7em;
-            background: var(--light-button-background);
-            box-shadow: rgba(0, 0, 0, 0.3) 1.95px 1.95px 2.6px;
-        }
-
-        #savebutton:hover {
-            opacity: 0.85;
-        }
-
-        #table-container {
-            background: var(--light-card-background);
-            width: 80%;
-            height: 20%;
-            border-radius: 1.5em;
-            box-shadow: var(--box-shadow-card);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-bottom: 2em;
-        }
-
-        #totalprofit-container {
-            background: var(--total-profit-background);
-            width: 80%;
-            height: 7%;
-            border-radius: 0.8em;
-            margin-bottom: 1em;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 0.2em;
-            box-shadow: var(--box-shadow-card);
-            color: var(--light-card-background);
-        }
-
-        /* ======== TABLE CSS ======== */
-        table {
-            width: 95%;
-        }
-
-        table, th {
-            border: 1px solid;
-        }
-
-        th {
-            padding: 0.3em;
-        }
-
-    </style>
+    <!-- FIREBASE -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script defer src="./firebase.js"></script>
 </head>
 
 <!-- ======== HTML ========= -->
@@ -202,7 +53,7 @@
                 </div>
 
                 <div id="button-container">
-                    <button id="savebutton" type="button">Save</button>
+                    <button id="savebutton" type="button" onclick="saveData()">Save</button>
                 </div>
 
             </form>
