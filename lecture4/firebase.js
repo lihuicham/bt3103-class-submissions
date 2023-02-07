@@ -46,8 +46,8 @@ async function display() {
 
         // create rows and cells in the table 
 
-        let table = document.getElementById('table');
-        let row = table.insertRow(index)
+        let tbodyRef = document.getElementById('table').getElementsByTagName('tbody')[0];
+        let row = tbodyRef.insertRow()
 
         let cell1 = row.insertCell(0);
         let cell2 = row.insertCell(1);
@@ -72,7 +72,7 @@ async function display() {
         let deleteButton = document.createElement('button');
 
         deleteButton.id = String(coin);
-        deleteButton.className = 'bwt';
+        deleteButton.className = 'delete-button';
         deleteButton.innerHTML = 'Delete'
 
         //append delete button in cells 
