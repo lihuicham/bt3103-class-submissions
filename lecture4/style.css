@@ -50,13 +50,11 @@ body {
     border-radius: 2.5em;
     width: 60em;
     height: auto;
-    padding-bottom: 3em;
+    padding-bottom: 1.2em;
 }
 
 .title {
-    /* position: relative;
-    right: 19.5em; */
-    margin-top: 2em;
+    margin-top: 0.5em;
 }
 
 #form-container {
@@ -70,6 +68,7 @@ body {
     border-radius: 1.5em;
     box-shadow: var(--box-shadow-card);
     padding-bottom: 1.5em;
+    margin-top: -1.5em;
 }
 
 .subtitle.addcoins,
@@ -111,10 +110,12 @@ label {
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 0.7em 3em;
+    padding: 0.7em 2em;
     border-radius: 0.7em;
     background: var(--light-button-background);
     box-shadow: rgba(0, 0, 0, 0.3) 1.95px 1.95px 2.6px;
+    font-weight: 500;
+    font-size: 14px;
 }
 
 #savebutton:hover {
@@ -131,34 +132,24 @@ label {
     flex-direction: column;
     align-items: center;
     padding-bottom: 2em;
+    margin-top: -0.6em;
 }
  
 #totalprofit-container {
     background: var(--total-profit-background);
     width: 80%;
-    height: 7%;
     border-radius: 0.8em;
     margin-bottom: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 0.2em;
+    padding: 0.3em 0;
     box-shadow: var(--box-shadow-card);
     color: var(--light-card-background);
+    margin-top: -1em;
 }
 
 /* ======== TABLE CSS ======== */
-/* table {
-    width: 95%;
-}
-
-table, th {
-    border: 1px solid;
-}
-
-th {
-    padding: 0.3em;
-} */
 
 table {
     border-collapse: collapse;
@@ -196,3 +187,24 @@ table tbody tr {
     box-shadow: rgba(0, 0, 0, 0.3) 1.95px 1.95px 2.6px;
 }
 
+.delete-button:hover {
+    opacity: 0.85;
+}
+
+/* COINS IMAGE */
+.coin-img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -2em;
+}
+
+.coin-img-container img {
+    width: 30%;
+    height: auto;
+}
+
+/* COPYRIGHT */
+.copyright {
+    margin-top: -1em;
+}
