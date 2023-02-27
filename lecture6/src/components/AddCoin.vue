@@ -1,46 +1,75 @@
 <template>
     <div id="form-container">
-            <form action="" id="user-form">
-                <h2 class="subtitle addcoins">Add Coins</h2>
-                
-                <div id="input-container">
-                    <div class="input">
-                        <label for="coin1">Coin Name : </label>
-                        <input type="text" id="coin1" required="" placeholder="Enter Coin"> <br><br>
-                    </div>
-
-                    <div class="input">
-                        <label for="ticker1">Ticker : </label>
-                        <input type="text" id="ticker1" required="" placeholder="Valid Ticker"> <br><br>
-                    </div>
-
-                    <div class="input">
-                        <label for="buy1">Buy Price : </label>
-                        <input type="number" id="buy1" required="" placeholder="Buy Price"> <br><br>
-                    </div>
-
-                    <div class="input">
-                        <label for="quant1">Buy Quantity : </label>
-                        <input type="number" id="quant1" required="" placeholder="Quantity"> <br><br>
-                    </div>
-
+        <form action="" id="user-form">
+            <h2 class="subtitle addcoins">Add Coins</h2>
+            
+            <div id="input-container">
+                <div class="input">
+                    <label for="coin1">Coin Name : </label>
+                    <input type="text" id="coin1" required="" placeholder="Enter Coin"> <br><br>
                 </div>
 
-                <div id="button-container">
-                    <button id="savebutton" type="button" onclick="saveData()">Save</button>
+                <div class="input">
+                    <label for="ticker1">Ticker : </label>
+                    <input type="text" id="ticker1" required="" placeholder="Valid Ticker"> <br><br>
                 </div>
 
-            </form>
-        </div>
+                <div class="input">
+                    <label for="buy1">Buy Price : </label>
+                    <input type="number" id="buy1" required="" placeholder="Buy Price"> <br><br>
+                </div>
+
+                <div class="input">
+                    <label for="quant1">Buy Quantity : </label>
+                    <input type="number" id="quant1" required="" placeholder="Quantity"> <br><br>
+                </div>
+
+            </div>
+
+            <div id="button-container">
+                <button id="savebutton" type="button" v-on:click="saveData">Save</button>
+            </div>
+
+        </form>
+    </div>
 </template>
 
 <script>
-    export default {
+import firebaseApp from '../firebase';
+import { getFirestore } from "firebase/firestore"
+import { doc, setDoc } from "firebase/firestore"
+
+const db = getFirestore(firebaseApp);
+
+export default {
+    methods: {
+        async saveData() {
+            let coin = document.getElementById('coin1').value;
+            let ticker = document.getElementById('ticker1').value;
+            let buyPrice = document.getElementById('buy1').value;
+            let buyQuantity = document.getElementById('quant1').value;
+
+            try {
+                await setDoc(doc(db, "Portfolio", coin), {
+                    Coin: coin, 
+                    Ticker: ticker,
+                    Buy_Price: buyPrice,
+                    Buy_Quantity: buyQuantity
+                })
+                document.getElementById('user-form').reset();
+                this.$emit("added")
+            }
+
+            catch(error) {
+                console.error("Error adding document: ", error);
+            }
         
+        }
     }
+}
 </script>
 
-<style scoped>
+<style >
 #form-container {
     display: flex;
     flex-direction: column;
@@ -53,6 +82,7 @@
     box-shadow: var(--box-shadow-card);
     padding-bottom: 1.5em;
     margin-top: -1.5em;
+    margin-bottom: -2em;
 }
 
 .subtitle.addcoins {

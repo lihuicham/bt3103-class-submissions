@@ -10,7 +10,7 @@
     }
 </script>
 
-<style scoped>
+<style>
 .title {
     margin-top: 0.5em;
 }

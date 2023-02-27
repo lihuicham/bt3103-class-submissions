@@ -2,7 +2,8 @@
     <div id="nav">
       <nav>
         <RouterLink to="/">Home</RouterLink> | 
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/about">About</RouterLink> | 
+        <RouterLink to="/profit">Profits</RouterLink>
       </nav>
     </div>
   <RouterView />
@@ -18,6 +19,5 @@ export default {
 
 </script>
 
-<style scoped>
-
+<style>
 </style>
