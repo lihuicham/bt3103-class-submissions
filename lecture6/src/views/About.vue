@@ -1,6 +1,6 @@
 <template>
   <div id="main-container">
-    <h1>This is an about page</h1>
+    <h1>This is an About Page</h1>
     <WelcomeCPP />
     <div class="desc-container">
       <span>CPP Description: </span>

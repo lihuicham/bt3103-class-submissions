@@ -1,5 +1,6 @@
 <template>
     <div id="main-container">
+        <h1>This is a Profit Page</h1>
         <ProfitDisplay />
     </div>
 </template>
