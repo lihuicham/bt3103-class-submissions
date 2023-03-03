@@ -30,8 +30,7 @@
 <script>
 import firebaseApp from '../firebase';
 import { getFirestore } from "firebase/firestore";
-import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
-// import ccxt from 'ccxt';
+import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";import ccxt from 'ccxt';
 
 const db = getFirestore(firebaseApp);
 export default {
@@ -91,7 +90,6 @@ export default {
                 profitCalculator(ticker)
 
                 async function profitCalculator(ticker) {
-                    var ccxt = require('ccxt');
                     let binance = new ccxt.binance();
                     let x = await binance.fetch_ohlcv(ticker, "5m");
                     cell6.innerHTML = x[499][4];
